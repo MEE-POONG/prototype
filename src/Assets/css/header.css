@@ -1,0 +1,14 @@
+.carousel-item img {
+  width: 100%;
+  margin-top: 8rem;
+  object-fit: cover;
+  filter: grayscale(0%) brightness(48%);
+-webkit-filter: grayscale(0%) brightness(82%);
+-moz-filter: grayscale(0%) brightness(48%);
+}
+.carousel {
+  font-size: 20px;
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  color: #fff;
+}

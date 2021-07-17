@@ -5,7 +5,7 @@ import { Button, Container, Navbar, Nav, NavDropdown, Form, FormControl } from "
 
 export default function TheNavbar() {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" >
+        <Navbar bg="dark" variant="dark" expand="lg" className="header-area header-sticky wow slideInDown">
             <Container>
                 <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
