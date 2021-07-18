@@ -1,19 +1,47 @@
-import React from "react";
-import Header from "./Container/Header";
-// import TheContent from "./containers/TheContent";
-// import { BrowserRouter as Router } from "react-router-dom";
-// import "./assets/scss/style.scss";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useContext, Suspense } from "react";
+import { UserContext } from "./store/UserProvider";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import routes from "./routes.js";
+import TheHeader from "./components/TheHeader";
+import TheFooter from "./components/TheFooter";
+
 
 export default function App() {
+  const { user } = useContext(UserContext);
+  const loading = (
+    <div className="loader-body pt-3 text-center">LOADING...</div>
+  );
   return (
-    <>
-      {/* <Router> */}
-      <div className="wrapper">
-        <Header />
-        {/* <TheContent /> */}
-      </div>
-      {/* </Router> */}
-    </>
+    <div className="app">
+      <Router>
+        <TheHeader />
+        <div className="body">
+          <Suspense fallback={loading}>
+            <Routes>
+              {routes.filter((e) => {
+                if (user.id) {
+                  return e;
+                }
+                return e.exact === true;
+              })
+                .map((route, idx) => {
+                  return (
+                    route.component && (
+                      <Route
+                        key={idx}
+                        path={route.path}
+                        exact={+route?.exact}
+                        name={route.name}
+                        element={<route.component />}
+                      />
+                    )
+                  );
+                })}
+            </Routes>
+          </Suspense>
+        </div>
+        <TheFooter />
+      </Router>
+    </div>
   );
 }

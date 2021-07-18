@@ -1,0 +1,37 @@
+.text-header.carousel-caption{
+    bottom: 55%;
+    background-image: url('../img/banner/backdrop.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    h3{
+        font-size: 20px;
+        font-family: "Paytone One", sans-serif;
+        font-weight: 400;
+        color: #fff;
+
+    }
+}
+.carousel-caption{
+    text-transform: capitalize;
+    p, h3{
+        margin: 0;
+    }
+}
+.text-detail.carousel-caption{
+    bottom: 40%;
+    h3{
+        font-size: 100px;
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 100px;
+        color: #fff;
+        font-family: "Paytone One", sans-serif;
+       
+    }
+    p{
+        font-size: 100px;
+        font-family: "Pacifico", cursive;
+        color: #F2C64D;
+        position: relative;
+    }
+}
